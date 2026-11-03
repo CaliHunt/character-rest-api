@@ -58,6 +58,8 @@ public class CharacterService {
                 updatedCharacter.getUniverse());
         existingCharacter.setSpecies(
                 updatedCharacter.getSpecies());
+        existingCharacter.setImageUrl(
+                updatedCharacter.getImageUrl());
 
         return characterRepository.save(existingCharacter);
     }
