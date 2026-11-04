@@ -19,20 +19,33 @@ public class CharacterService {
     }
 
     public List<TvCharacter> getAllCharacters(
-            String name, String universe) {
+        String name, String universe) {
 
-        if (name != null && !name.isBlank()) {
-            return characterRepository
-                    .findByNameContainingIgnoreCase(name);
-        }
+    boolean hasName = name != null && !name.isBlank();
+    boolean hasUniverse = universe != null && !universe.isBlank();
 
-        if (universe != null && !universe.isBlank()) {
-            return characterRepository
-                    .findByUniverseIgnoreCase(universe);
-        }
-
-        return characterRepository.findAll();
+    //both filters are being used
+    if (hasName && hasUniverse) {
+        return characterRepository
+                .findByNameContainingIgnoreCaseAndUniverseIgnoreCase(
+                        name, universe);
     }
+
+    //only name search
+    if (hasName) {
+        return characterRepository
+                .findByNameContainingIgnoreCase(name);
+    }
+
+    //only universe filter
+    if (hasUniverse) {
+        return characterRepository
+                .findByUniverseIgnoreCase(universe);
+    }
+
+    //no filters, show everyone
+    return characterRepository.findAll();
+}
 
     public TvCharacter getCharacterById(Long id) {
         return characterRepository.findById(id)
