@@ -139,4 +139,10 @@ public String deleteCharacter(
     return "redirect:/";
 }
 
+// display the about page
+@GetMapping("/about")
+public String about() {
+    return "about";
+}
+    
 }
