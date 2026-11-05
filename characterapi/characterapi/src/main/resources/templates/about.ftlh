@@ -13,6 +13,10 @@
 
     <main class="about-layout">
 
+        <img src="/images/Naruto.jpg"
+     alt="Anime character featured in the gallery"
+     class="about-image">
+
         <section>
             <h2>About the Gallery</h2>
 
@@ -39,15 +43,31 @@
         </section>
 
         <section>
-            <h2>How It Works</h2>
+    <h2>How This Application Works</h2>
 
-            <p>
-                This application uses Spring Boot, Java, FreeMarker,
-                and PostgreSQL. Character information is stored in
-                a database and displayed dynamically through the
-                website.
-            </p>
-        </section>
+    <p>
+        This application uses a layered Spring Boot architecture.
+        The Page Controller handles browser requests and sends
+        information to FreeMarker templates. The templates create
+        the pages that visitors see.
+    </p>
+
+    <p>
+        The Service layer contains the application's character
+        operations, while the Repository layer communicates with
+        the PostgreSQL database. The Entity layer represents
+        character records stored in that database.
+    </p>
+
+    <p>
+        The front end uses FreeMarker to display character
+        information retrieved through the service layer. When a
+        visitor adds, edits, or deletes a character, the page
+        controller calls the service, which updates the database.
+        The REST API remains available separately through the
+        API controller.
+    </p>
+</section>
 
     </main>
 

@@ -153,3 +153,12 @@ main {
   color: var(--dim);
   font-size: 0.85rem;
 }
+
+.about-image {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    margin: 20px auto;
+    border-radius: 12px;
+}
