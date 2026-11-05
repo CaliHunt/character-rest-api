@@ -12,4 +12,7 @@ public interface CharacterRepository
     List<TvCharacter> findByUniverseIgnoreCase(String universe);
 
     List<TvCharacter> findByNameContainingIgnoreCase(String name);
+
+    List<TvCharacter> findByNameContainingIgnoreCaseAndUniverseIgnoreCase(
+        String name, String universe);
 }
